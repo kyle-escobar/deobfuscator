@@ -1,6 +1,7 @@
 package io.rsbox.deobfuscator.asm
 
 import io.rsbox.deobfuscator.asm.context.CachingBloatContext
+import io.rsbox.deobfuscator.asm.editor.ClassHierarchy
 import io.rsbox.deobfuscator.asm.file.ClassNodeFileLoader
 import io.rsbox.deobfuscator.asm.reflect.ClassInfo
 import org.objectweb.asm.ClassReader
@@ -18,6 +19,10 @@ class ClassPool {
 
     internal val loader = ClassNodeFileLoader(this)
     internal val context = CachingBloatContext(loader, listOf<ClassInfo>(), false)
+
+    init {
+        ClassHierarchy.RELAX = true
+    }
 
     val classes get() = classMap.values.toList()
     val ignoredClasses get() = ignoredClassMap.values.toList()

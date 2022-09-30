@@ -1,6 +1,9 @@
 package io.rsbox.deobfuscator
 
 import io.rsbox.deobfuscator.asm.ClassPool
+import io.rsbox.deobfuscator.transformer.DeadCodeRemover
+import io.rsbox.deobfuscator.transformer.RuntimeExceptionRemover
+import io.rsbox.deobfuscator.transformer.multiplier.MultiplierFinder
 import org.tinylog.kotlin.Logger
 import java.io.File
 import kotlin.reflect.full.createInstance
@@ -13,7 +16,9 @@ object Deobfuscator {
     private val transformers = mutableListOf<Transformer>()
 
     init {
-
+        addTransformer<RuntimeExceptionRemover>()
+        addTransformer<DeadCodeRemover>()
+        addTransformer<MultiplierFinder>()
     }
 
     @JvmStatic
