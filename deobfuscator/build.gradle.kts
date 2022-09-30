@@ -11,3 +11,7 @@ dependencies {
 application {
     mainClass.set("io.rsbox.deobfuscator.Deobfuscator")
 }
+
+tasks.named<JavaExec>("run") {
+    workingDir = rootProject.projectDir
+}
