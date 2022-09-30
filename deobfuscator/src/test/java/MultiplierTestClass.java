@@ -1,20 +1,35 @@
-class TestMultiplierClass
+class MultiplierTestClass
 {
-    int field2863;
-    int array[];
+    private static int dummy(Object... args)
+    {
+        return 0;
+    }
+
+    private int field1051 = -1611704481;
+    private int field2701;
+    private int field2138, field2130;
 
     public void test()
     {
-        TestMultiplierClass tc = new TestMultiplierClass();
+        MultiplierTestClass tc = new MultiplierTestClass(); // to trick executor to call the constructor
+        int var = 42;
 
-        field2863 = -1446933277;
+        if (-1 != this.field1051 * 1928543073)
+        {
+            dummy(this.field1051 * 1928543073);
+            this.field1051 = dummy() * 1611704481;
+        }
 
-        array[378529589 * tc.field2863] = 1;
+        if (field2701 * 1550405721 > 30000)
+        {
+            field2701 += -1868498967 * var;
+        }
 
-        int var = 32;
-
-        tc.field2863 = var * 1446933277;
-
-        array[378529589 * tc.field2863] = 1;
+        field2138 = tc.dummy() * 1510226873;
+        field2130 = 572701809 * tc.field2138;
+        if (-1722291303 * field2130 >= var)
+        {
+            var = field2130 * -1722291303;
+        }
     }
 }
